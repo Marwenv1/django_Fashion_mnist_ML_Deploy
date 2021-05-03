@@ -51,10 +51,12 @@ def convertImage(imgData):
 
 @csrf_exempt
 def predict(request):
-    path = "D:/desktop/pullover.jpg"
-
+    imgData = request.POST.get('image')
+    # path = "C:/Users/marwe/OneDrive/Desktop/idk/man.jpg"
+    convertImage(imgData)
     # load the image
-    image = Image.open(path).convert('L')
+    print(OUTPUT)
+    image = Image.open(OUTPUT).convert('L')
     image = image.resize((28,28),Image.ANTIALIAS)
     # convert image to numpy array
     data = asarray(image)
