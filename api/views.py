@@ -5,6 +5,7 @@ from keras.preprocessing import image
 
 from PIL import Image
 
+from flask_cors import CORS, cross_origin
 
 from django.shortcuts import render
 import numpy as np
@@ -53,10 +54,10 @@ def convertImage(imgData):
 def predict(request):
     imgData = request.POST.get('image')
     # path = "C:/Users/marwe/OneDrive/Desktop/idk/man.jpg"
-    convertImage(imgData)
+    # convertImage(imgData)
     # load the image
-    print(OUTPUT)
-    image = Image.open(OUTPUT).convert('L')
+    print(imgData)
+    image = Image.open(imgData).convert('L')
     image = image.resize((28,28),Image.ANTIALIAS)
     # convert image to numpy array
     data = asarray(image)
