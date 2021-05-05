@@ -20,7 +20,7 @@ from django_Fashion_mnist_ML_Deploy.settings import STATIC_URL
 sys.path.append(os.path.abspath("./model"))
 ## custom utils file create for writing some helper func
 from .utils import *
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
 ## Declaring global variable
@@ -52,7 +52,8 @@ def convertImage(imgData):
 
 @csrf_exempt
 def predict(request):
-    imgData = request.POST.get('image')
+    imgData = request.FILES.get('file')
+    # imgData = request.META.get('image')
     # path = "C:/Users/marwe/OneDrive/Desktop/idk/man.jpg"
     # convertImage(imgData)
     # load the image
@@ -91,7 +92,8 @@ def predict(request):
         print(np.argmax(out, axis=1))
         response = np.array_str(np.argmax(out, axis=1))
 
-    return JsonResponse({"output": response})
+    return HttpResponse(response)
+
 
 
 def index(request):
