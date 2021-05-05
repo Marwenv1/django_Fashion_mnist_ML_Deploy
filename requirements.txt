@@ -4,3 +4,5 @@ keras~=2.4.3
 numpy~=1.19.2
 pillow~=8.0.1
 djangorestframework~=3.11.0
+gunicorn
+django-heroku
