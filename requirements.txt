@@ -1,4 +1,3 @@
-tensorflow-estimator @ file:///tmp/build/80754af9/tensorflow-estimator_1599136169057/work/whl_temp/tensorflow_estimator-2.3.0-py2.py3-none-any.whl
 absl-py @ file:///C:/ci/absl-py_1615411229697/work
 aiohttp @ file:///C:/ci/aiohttp_1614361024229/work
 alabaster==0.7.12
